@@ -1,35 +1,32 @@
 <?php 
+require("include/db.php");
 require("include/head.php");
 ?>
-    <div id="contenu"class="container text-center">
-        <div class="row">
-            <div class="col ">
-        
-                <?php 
-
-                    require("include/db.php");
-                    // je récupère les donner de la table 
-                    $reponces = $bdd ->query('SELECT pseudo,messages,HOUR(send_at) AS heur , MINUTE(send_at) AS minute, SECOND(send_at) AS seconde FROM tchat');
-
-                    while($donner=$reponces->fetch())
-                    {
-                        echo$donner['heur'].' : '.$donner['minute'].' : '.$donner['seconde'].' ||| '.$donner['pseudo'].' : '.$donner['messages'].'</br>';
-                    }
-                ?>
-            </div>
-        </div>    
-            <form method="POST" action="resultat.php">
-                <label>pseudo </label>
-                <input type="text" name="pseudo">
-                <label>message </label>
-                <input type="text" name="message">
-
-                <!-- le bouton de type "submit" redirige vers la page mis en "action" sur ligne 10 -->
-                <button type="submit"> envoyer</button>
-
+<div class="container">
+    <div class="row text-center">
+        <div class="col">
+            <form method="POST" action="connection.php">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Pseudo</label>
+                    <input type="text" class="form-control text-center " id="exampleInputEmail1" aria-describedby="emailHelp" name = "login">
+                    <small id="emailHelp" class="form-text text-muted" >We'll never share your email with anyone
+                        else.</small>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Mot de passe</label>
+                    <input type="password" class="form-control text-center" id="exampleInputPassword1" name="mdp">
+                </div>
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Se connecter </button>
             </form>
-
+        </div>
     </div>
-    <?php 
-    require("include/footer.php");
-    ?>
+    <div class="row text-center">
+        <div class="col">
+            <a href="#">Pas en core de compte ?</a>
+        </div>
+    </div>
+</div>
