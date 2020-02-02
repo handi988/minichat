@@ -36,12 +36,15 @@ if(isset($_GET['id']) && $_GET["id"] > 0)
                <p><?php echo $userinfo['logins'];?>
                 <label>message </label>
                 <input type="text" name="message">
+                <button type="submit" class="mt-2"> envoyer</button>
             </div>
-        </div>                   
-                <!-- le bouton de type "submit" redirige vers la page mis en "action" sur ligne 10 -->
-                <button type="submit"> envoyer</button>
-
+        </div>  
             </form>
+            <div class="row">
+                <div class="col">                
+                <a href="deconnexion.php">Editer le profil</a>
+                </div> 
+            </div>
 
     </div>
     <?php
