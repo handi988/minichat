@@ -43,6 +43,7 @@ if(isset($_GET['id']) && $_GET["id"] > 0)
             <div class="row">
                 <div class="col">                
                 <a href="deconnexion.php">Deconnextion</a>
+                <a href="edit.php">Editez le profil</a>
                 </div> 
             </div>
 
