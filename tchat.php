@@ -1,5 +1,8 @@
 <?php 
+session_start();
 require("include/head.php");
+if(isset($_GET['id']) && $_GET["id"] > 0)
+{
 ?>
 
     <div id="contenu"class="container text-center">
@@ -35,6 +38,8 @@ require("include/head.php");
             </form>
 
     </div>
-    <?php 
+    <?php
+    };
     require("include/footer.php");
+
     ?>

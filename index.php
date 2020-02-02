@@ -20,7 +20,7 @@ require("include/head.php");
                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
                     <label class="form-check-label" for="exampleCheck1">Check me out</label>
                 </div>
-                <button type="submit" class="btn btn-primary">Se connecter </button>
+                <button type="submit" class="btn btn-primary" name="formconnexion">Se connecter </button>
             </form>
         </div>
     </div>
