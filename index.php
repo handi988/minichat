@@ -26,7 +26,7 @@ require("include/head.php");
     </div>
     <div class="row text-center">
         <div class="col">
-            <a href="#">Pas en core de compte ?</a>
+            <a href="inscription.php">Pas en core de compte ?</a>
         </div>
     </div>
 </div>

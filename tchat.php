@@ -42,7 +42,7 @@ if(isset($_GET['id']) && $_GET["id"] > 0)
             </form>
             <div class="row">
                 <div class="col">                
-                <a href="deconnexion.php">Editer le profil</a>
+                <a href="deconnexion.php">Deconnextion</a>
                 </div> 
             </div>
 
@@ -50,7 +50,7 @@ if(isset($_GET['id']) && $_GET["id"] > 0)
     <?php
     }else
     {
-        echo "vruillez vous connectez";
+        echo "veuillez vous connectez";
     }
     };
     require("include/footer.php");
