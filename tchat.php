@@ -20,12 +20,12 @@ if(isset($_GET['id']) && $_GET["id"] > 0)
 
                    
                     // je récupère les donner de la table 
-                    $reponces = $bdd ->query('SELECT pseudo,messages,HOUR(send_at) AS heur , MINUTE(send_at) AS minute, SECOND(send_at) AS seconde FROM tchat');
+                    $reponces = $bdd->query('SELECT users.id ,logins, messages  FROM users  JOIN tchat ON users.id = tchat.users_id');
 
                     while($donner=$reponces->fetch())
                     {
                         
-                        echo $donner['heur'].' h '.$donner['minute'].' min '.$donner['seconde'].'  sec : '.$donner['pseudo'].' : '.$donner['messages']. '</br>';
+                        echo $donner['logins'].' : '.$donner['messages']. '</br>';
                     }
                 ?>
             </div>
