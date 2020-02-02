@@ -1,8 +1,15 @@
 <?php 
 session_start();
+require("include/db.php");
 require("include/head.php");
 if(isset($_GET['id']) && $_GET["id"] > 0)
 {
+    $getid = intval($_GET["id"]);
+    $reponse = $bdd->prepare("SELECT id,logins FROM users WHERE id= ?" );
+    $reponse->execute(array($getid));
+    $userinfo = $reponse->fetch();
+    if(isset($_SESSION["id"]) && $userinfo["id"] == $_SESSION['id'])
+    {
 ?>
 
     <div id="contenu"class="container text-center">
@@ -11,7 +18,7 @@ if(isset($_GET['id']) && $_GET["id"] > 0)
         
                 <?php 
 
-                    require("include/db.php");
+                   
                     // je récupère les donner de la table 
                     $reponces = $bdd ->query('SELECT pseudo,messages,HOUR(send_at) AS heur , MINUTE(send_at) AS minute, SECOND(send_at) AS seconde FROM tchat');
 
@@ -26,8 +33,7 @@ if(isset($_GET['id']) && $_GET["id"] > 0)
         <div class="row mt">
             <div class="col">
             <form method="POST" action="resultat.php">
-                <label>pseudo </label>
-                <input type="text" name="pseudo">
+               <p><?php echo $userinfo['logins'];?>
                 <label>message </label>
                 <input type="text" name="message">
             </div>
@@ -39,6 +45,10 @@ if(isset($_GET['id']) && $_GET["id"] > 0)
 
     </div>
     <?php
+    }else
+    {
+        echo "vruillez vous connectez";
+    }
     };
     require("include/footer.php");
 
