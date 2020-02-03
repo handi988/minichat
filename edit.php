@@ -28,6 +28,7 @@ require("include/head.php");
             $mdp2 = sha1($_POST['updatempd2']);
             if($mdp1 == $mdp2)
             {
+
                 $updatemdp = $bdd->prepare("UPDATE users SET passwords = ? WHERE id = ?");
                 $updatemdp->execute(array($mdp1,$_SESSION['id']));
                 header("location: tchat.php?id=".$_SESSION['id']);
@@ -37,6 +38,7 @@ require("include/head.php");
             {
                 $msg = " vos mdp ne coresponp pas ";
             }
+
         }
 
         ?>  
@@ -68,6 +70,7 @@ require("include/head.php");
                 <button type="submit" class="btn btn-primary" name="formedit">Se connecter </button>
                 <button type="submit" class="btn btn-primary" name="formconnexion">Annuler </button>
             </form>
+            <a href="delete.php">Supprimer le comptes</a>
             <?php if(isset($msg)) {echo $msg;}?>
         </div>
     </div>
@@ -76,7 +79,6 @@ require("include/head.php");
     else { 
         echo "veuillez vous connecter";
     }
-    
     require("include/footer.php");
     
     ?>
